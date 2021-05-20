@@ -48,6 +48,10 @@ public class LoginController implements Initializable {
         }
     }
 
+    public void ForgetPassword(ActionEvent event){
+
+    }
+
 
 
 
