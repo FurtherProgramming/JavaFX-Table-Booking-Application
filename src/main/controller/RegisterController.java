@@ -56,9 +56,7 @@ public class RegisterController {
     private MenuItem question2;
 
     public void Register (ActionEvent event){
-        try {
-            if ()
-        }
+
 
 
     }
