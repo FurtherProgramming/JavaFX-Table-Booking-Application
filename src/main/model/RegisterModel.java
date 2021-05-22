@@ -29,7 +29,7 @@ public class RegisterModel {
             return false;
         }
     }
-    public boolean isRegisteredID(int empID, String username) throws SQLException{
+    public boolean isRegistered(int empID, String username) throws SQLException{
         PreparedStatement preparedStatement = null;
         ResultSet resultSet=null;
         String query1 = "select * from employee where ID = ?";
@@ -65,10 +65,9 @@ public class RegisterModel {
 
 
     }
-    public void Register(int id, String name, String surname, int age, String username, String password, String role, String question, String answer){
+    public void register(int id, String name, String surname, int age, String username, String password, String role, String question, String answer){
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet=null;
-        String query = " insert into employee (id, name, surname, age, username, password, role, question, answer, admin)" + " values (?, ?, ?, ?, ?, ?, ?, ?, no)";
+        String query = " insert into employee (id, name, surname, age, username, password, role, question, answer) values (?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         try {
 
@@ -83,7 +82,7 @@ public class RegisterModel {
             preparedStatement.setString(8, question);
             preparedStatement.setString(9, answer);
 
-            resultSet = preparedStatement.executeQuery();
+            preparedStatement.executeQuery();
 
         }
         catch (Exception e){

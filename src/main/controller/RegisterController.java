@@ -8,7 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Button;
 import main.model.RegisterModel;
+
 
 
 
@@ -18,22 +20,6 @@ import java.util.ResourceBundle;
 
 public class RegisterController {
     public RegisterModel registerModel = new RegisterModel();
-    @FXML
-    private Label empID;
-    @FXML
-    private Label username;
-    @FXML
-    private Label password;
-    @FXML
-    private Label firstName;
-    @FXML
-    private Label lastName;
-    @FXML
-    private Label role;
-    @FXML
-    private Label secretQuestion;
-    @FXML
-    private Label answer;
     @FXML
     private TextField txtEmpID;
     @FXML
@@ -49,16 +35,30 @@ public class RegisterController {
     @FXML
     private TextField txtAnswer;
     @FXML
-    private SplitMenuButton menuQuestion;
+    private TextField txtAge;
     @FXML
-    private MenuItem question1;
-    @FXML
-    private MenuItem question2;
-
-    public void Register (ActionEvent event){
+    private Label labelStatus;
+    @FXML TextField txtQuestion;
 
 
 
+
+
+
+
+
+    public void register(ActionEvent event) {
+        try {
+            if (registerModel.isRegistered(Integer.parseInt(txtEmpID.getText()), txtUsername.getText()) == true){
+                labelStatus.setText("Register failed, already ID/Username");
+            }else{
+                registerModel.register(Integer.parseInt(txtEmpID.getText()), txtFirstName.getText(), txtLastName.getText(), Integer.parseInt(txtAge.getText()), txtUsername.getText(), txtPassword.getText(), txtRole.getText(), txtQuestion.getText(), txtAnswer.getText());
+                labelStatus.setText("Register successful");
+            }
+
+        } catch (Exception e) {
+
+        }
     }
 }
 
