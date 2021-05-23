@@ -1,12 +1,18 @@
 package main.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+import javafx.scene.control.Button;
 import main.model.LoginModel;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -19,6 +25,8 @@ public class LoginController implements Initializable {
     private TextField txtUsername;
     @FXML
     private TextField txtPassword;
+    @FXML
+    private Button buttonForgotPassword;
 
 
     // Check database connection
@@ -48,9 +56,28 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void ForgetPassword(ActionEvent event){
+    public void goToResetPassword(ActionEvent event){
+                ResetPassword();
+                Stage stage = (Stage) buttonForgotPassword.getScene().getWindow();
+                stage.close();
 
     }
+    public void ResetPassword(){
+        try {
+            URL url = new File("src/main/ui/ResetPassword1.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Reset Password");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
+    }
+}
+
+
 
 
 
@@ -59,4 +86,4 @@ public class LoginController implements Initializable {
 
 
 
-}
+

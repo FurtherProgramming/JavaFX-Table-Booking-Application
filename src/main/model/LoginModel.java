@@ -1,8 +1,14 @@
 package main.model;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import main.SQLConnection;
 import org.sqlite.SQLiteConnection;
 
+import java.io.File;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,4 +63,7 @@ public class LoginModel {
 
     }
 
+
 }
+
+
