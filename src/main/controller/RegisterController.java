@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Button;
 import main.model.RegisterModel;
+import main.SQLConnection;
 
 
 
@@ -30,29 +31,29 @@ public class RegisterController {
     private TextField txtFirstName;
     @FXML
     private TextField txtLastName;
-    @FXML
-    private TextField txtRole;
+
     @FXML
     private TextField txtAnswer;
     @FXML
     private TextField txtAge;
     @FXML
     private Label labelStatus;
-    @FXML TextField txtQuestion;
+    @FXML
+    private TextField txtQuestion;
 
 
 
 
 
+    public void commitRegister(ActionEvent event){
+        SQLConnection.connect();
 
 
-
-    public void register(ActionEvent event) {
         try {
             if (registerModel.isRegistered(Integer.parseInt(txtEmpID.getText()), txtUsername.getText()) == true){
                 labelStatus.setText("Register failed, already ID/Username");
             }else{
-                registerModel.register(Integer.parseInt(txtEmpID.getText()), txtFirstName.getText(), txtLastName.getText(), Integer.parseInt(txtAge.getText()), txtUsername.getText(), txtPassword.getText(), txtRole.getText(), txtQuestion.getText(), txtAnswer.getText());
+                registerModel.register(Integer.parseInt(txtEmpID.getText()), txtFirstName.getText(), txtLastName.getText(), Integer.parseInt(txtAge.getText()), txtUsername.getText(), txtPassword.getText(), "employee", txtQuestion.getText(), txtAnswer.getText());
                 labelStatus.setText("Register successful");
             }
 
