@@ -48,12 +48,85 @@ public class ResetPassword1Model {
         } catch (Exception e) {
             return false;
         } finally {
-        preparedStatement.close();
-        resultSet.close();
+            preparedStatement.close();
+            resultSet.close();
+        }
     }
+        public String getQuestion(int empID) throws SQLException {
+            PreparedStatement preparedStatement = null;
+            Connection connection = this.connect();
+            String query = "select question from employee where ID = ?";
+            ResultSet resultSet = null;
+            String question;
+
+
+            try {
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, empID);
+                resultSet = preparedStatement.executeQuery();
+                question = resultSet.getString(1);
+                return question;
+
+            } catch (Exception e) {
+                return null;
+            } finally {
+                preparedStatement.close();
+
+            }
+
+
+        }
+
+
+        public boolean isCorrect(String answer, int empID) throws SQLException {
+            PreparedStatement preparedStatement = null;
+            ResultSet resultSet = null;
+            Connection connection = this.connect();
+            String query = "select answer from employee where ID = ?";
+
+            try {
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, empID);
+                resultSet = preparedStatement.executeQuery();
+                if (resultSet.getString(1).toLowerCase().compareTo(answer.toLowerCase()) == 0){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+            catch (Exception e) {
+                return false;
+            }finally{
+                preparedStatement.close();
+                resultSet.close();
+            }
+
+        }
+
+        public void changePassword(String password, int id) throws SQLException {
+
+            String query = "update employee set password = ? where id = ?";
+
+
+            try {
+                Connection connection = this.connect();
+                PreparedStatement PS = connection.prepareStatement(query);
+                PS.setString(1, password);
+                PS.setString(2, Integer.toString(id));
+                PS.executeQuery();
+
+
+            } catch (Exception e) {
+
+            } finally {
+
+            }
+
+
+        }
 
 
 
 
 }
-}
+

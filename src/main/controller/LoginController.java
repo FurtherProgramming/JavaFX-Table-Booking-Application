@@ -27,6 +27,8 @@ public class LoginController implements Initializable {
     private TextField txtPassword;
     @FXML
     private Button buttonForgotPassword;
+    @FXML
+    private Button buttonLogin;
 
 
     // Check database connection
@@ -48,6 +50,8 @@ public class LoginController implements Initializable {
             if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())){
 
                 isConnected.setText("Logged in successfully");
+                Stage stage = (Stage) buttonLogin.getScene().getWindow();
+                stage.close();
             }else{
                 isConnected.setText("username and password is incorrect");
             }
@@ -75,6 +79,21 @@ public class LoginController implements Initializable {
 
         }
     }
+    public void goToEmployeeMenu(){
+        try {
+            URL url = new File("src/employeemenu.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Employee Menu");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
+    }
+
+
 }
 
 

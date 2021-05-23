@@ -28,19 +28,26 @@ public class ResetPassword1Controller {
     private TextField txtEmpID;
     @FXML
     private Button buttonConfirm;
-    private int empID;
+    @FXML
+    private TextField txtAnswer;
+    @FXML
+    private TextField txtPassword;
+    @FXML
+    private Button buttonReset;
+    @FXML
+    private Label labelStatusPassword;
 
     ResetPassword1Model RP1M = new ResetPassword1Model();
-    public void checkEmpID(){
-        try {
-        if (RP1M.validEmployeeID(Integer.parseInt(txtEmpID.getText())) == true){
-            setEmpID(Integer.parseInt(txtEmpID.getText()));
-            goToResetPassword2();
-            Stage stage = (Stage) buttonConfirm.getScene().getWindow();
 
-        }else{
-            labelStatus.setText("Invalid ID");
-        }
+    public void checkEmpID() {
+        try {
+            if (RP1M.validEmployeeID(Integer.parseInt(txtEmpID.getText())) == true) {
+
+                labelStatus.setText(RP1M.getQuestion(Integer.parseInt(txtEmpID.getText())));
+
+            } else {
+                labelStatus.setText("Invalid ID");
+            }
 
         } catch (Exception e) {
 
@@ -48,25 +55,17 @@ public class ResetPassword1Controller {
 
     }
 
-    public void goToResetPassword2(){
+    public void resetPassword() throws SQLException {
         try {
-            URL url = new File("src/main/ui/ResetPassword2.fxml").toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-            Stage viewStage = new Stage();
-            Scene scene = new Scene(root);
-            viewStage.setTitle("ResetPassword");
-            viewStage.setScene(scene);
-            viewStage.show();
-        } catch(Exception e) {
+            if (RP1M.isCorrect(txtAnswer.getText(), Integer.parseInt(txtEmpID.getText())) == true) {
+                RP1M.changePassword("\'" + txtPassword.getText() + "\'", Integer.parseInt(txtEmpID.getText()));
+            } else {
+                labelStatusPassword.setText("Wrong answer");
+            }
 
+        } catch (Exception e) {
         }
-    }
-    private void setEmpID(int id){
 
-        empID = id;
-    }
-    public int getEmpID(){
-        return empID;
-    }
 
+    }
 }
