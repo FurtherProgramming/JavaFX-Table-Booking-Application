@@ -48,8 +48,8 @@ public class LoginController implements Initializable {
 
         try {
             if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())){
-
                 isConnected.setText("Logged in successfully");
+                goToEmployeeMenu();
                 Stage stage = (Stage) buttonLogin.getScene().getWindow();
                 stage.close();
             }else{
@@ -81,7 +81,7 @@ public class LoginController implements Initializable {
     }
     public void goToEmployeeMenu(){
         try {
-            URL url = new File("src/employeemenu.fxml").toURI().toURL();
+            URL url = new File("src/main/ui/employeemenu.fxml").toURI().toURL();
             Parent root = FXMLLoader.load(url);
             Stage viewStage = new Stage();
             Scene scene = new Scene(root);

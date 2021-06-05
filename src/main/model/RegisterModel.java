@@ -71,8 +71,8 @@ public class RegisterModel {
                 PS.setString(7, role);
                 PS.setString(8, question);
                 PS.setString(9, answer);
-
                 PS.executeUpdate();
+
 
             } catch (SQLException e) {
 
