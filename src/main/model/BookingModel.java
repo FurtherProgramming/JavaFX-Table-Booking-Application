@@ -57,7 +57,7 @@ public class BookingModel {
 
     }
 
-    public void book(int id, Date date, String seat){
+    public void book(int id, Date date, int seat){
         String query = "INSERT INTO Booking(id, Date, Seat) values (?, ?, ?)";
 
         try {
@@ -65,7 +65,7 @@ public class BookingModel {
             PreparedStatement PS = connection.prepareStatement(query);
             PS.setInt(1,id);
             PS.setDate(2, date);
-            PS.setString(3, seat);
+            PS.setInt(3, seat);
             PS.executeUpdate();
 
 

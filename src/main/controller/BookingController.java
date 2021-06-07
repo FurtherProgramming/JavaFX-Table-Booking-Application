@@ -32,32 +32,87 @@ public class BookingController {
     BookingModel bookingModel = new BookingModel();
     @FXML
     private Rectangle table1;
-    private Rectangle table2;
-    private Rectangle table3;
-    private Rectangle table4;
-    private Rectangle table5;
-    private Rectangle table6;
-    private Rectangle table7;
-    private Rectangle table8;
-    private Rectangle table9;
-    private Rectangle table10;
-    private Rectangle table11;
-    private Rectangle table12;
-    private Button buttonT1;
-    private Button buttonT2;
-    private Button buttonT3;
-    private Button buttonT4;
-    private Button buttonT5;
-    private Button buttonT6;
-    private Button buttonT7;
-    private Button buttonT8;
-    private Button buttonT9;
-    private Button buttonT10;
-    private Button buttonT11;
-    private Button buttonT12;
-    private DatePicker datePicker;
-    private Button buttonTables;
-    private Button buttonConfirm;
+    @FXML private Rectangle table2;
+    @FXML private Rectangle table3;
+    @FXML private Rectangle table4;
+    @FXML private Rectangle table5;
+    @FXML private Rectangle table6;
+    @FXML private Rectangle table7;
+    @FXML private Rectangle table8;
+    @FXML private Rectangle table9;
+    @FXML private Rectangle table10;
+    @FXML private Rectangle table11;
+    @FXML private Rectangle table12;
+    @FXML private Button buttonT1;
+    @FXML private Button buttonT2;
+    @FXML private Button buttonT3;
+    @FXML private Button buttonT4;
+    @FXML private Button buttonT5;
+    @FXML private Button buttonT6;
+    @FXML private Button buttonT7;
+    @FXML private Button buttonT8;
+    @FXML private Button buttonT9;
+    @FXML private Button buttonT10;
+    @FXML private Button buttonT11;
+    @FXML private Button buttonT12;
+    @FXML private DatePicker datePicker;
+    @FXML private Button buttonTables;
+    @FXML private Button buttonConfirm;
+    @FXML private TextField txtID;
+
+
+    private int selectedTable;
+    public void table1Booking(ActionEvent event){
+        selectedTable = 1;
+    }
+    public void table2Booking(ActionEvent event){
+        selectedTable = 2;
+    }
+    public void table3Booking(ActionEvent event){
+        selectedTable = 3;
+    }
+    public void table4Booking(ActionEvent event){
+        selectedTable = 4;
+    }
+    public void table5Booking(ActionEvent event){
+        selectedTable = 5;
+    }
+    public void table6Booking(ActionEvent event){
+        selectedTable = 6;
+    }
+    public void table7Booking(ActionEvent event){
+        selectedTable = 7;
+    }
+    public void table8Booking(ActionEvent event){
+        selectedTable = 8;
+    }
+    public void table9Booking(ActionEvent event){
+        selectedTable = 9;
+    }
+    public void table10Booking(ActionEvent event){
+        selectedTable = 10;
+    }
+    public void table11Booking(ActionEvent event){
+        selectedTable = 11;
+    }
+    public void table12Booking(ActionEvent event){
+        selectedTable = 12;
+    }
+    public void makeBooking(ActionEvent event){
+        try {
+        LocalDate localDate = datePicker.getValue();
+        Date date = Date.valueOf(localDate);
+        if (bookingModel.isBooked(date, selectedTable) == false){
+            bookingModel.book(Integer.parseInt(txtID.getText()), date, selectedTable);
+
+        }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
 
     public void tableUpdater(ActionEvent event) {
         try {
@@ -67,10 +122,6 @@ public class BookingController {
                 if (bookingModel.isBooked(date, i) == true);
                 redTable(i);
             }
-
-
-
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -104,16 +155,16 @@ public class BookingController {
             table8.setFill(Paint.valueOf("#FF0000"));
         }
         if (tableNumber == 9) {
-            table6.setFill(Paint.valueOf("#FF0000"));
+            table9.setFill(Paint.valueOf("#FF0000"));
         }
         if (tableNumber == 10) {
-            table6.setFill(Paint.valueOf("#FF0000"));
+            table10.setFill(Paint.valueOf("#FF0000"));
         }
         if (tableNumber == 11) {
-            table6.setFill(Paint.valueOf("#FF0000"));
+            table11.setFill(Paint.valueOf("#FF0000"));
         }
         if (tableNumber == 12) {
-            table6.setFill(Paint.valueOf("#FF0000"));
+            table12.setFill(Paint.valueOf("#FF0000"));
         }
     }
 
