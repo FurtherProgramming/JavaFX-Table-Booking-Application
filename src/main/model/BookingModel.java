@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.SQLConnection;
 import org.sqlite.SQLiteConnection;
+import java.time.LocalDate;
 
 import java.sql.*;
 
@@ -27,16 +28,16 @@ public class BookingModel {
         }
     }
 
-    public boolean isBooked(Date date, String seat) throws SQLException{
+    public boolean isBooked(Date date, int seat) throws SQLException{
         PreparedStatement preparedStatement = null;
         ResultSet resultSet=null;
-        String query = "select Date, seat from employee where username = ? and password= ?";
+        String query = "select seat from Booking where date = ? and seat = ?";
 
         try {
 
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setDate(1, date);
-            preparedStatement.setString(2, seat);
+            preparedStatement.setInt(2, seat);
 
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -74,6 +75,7 @@ public class BookingModel {
 
 
     }
+
 
 
 }
