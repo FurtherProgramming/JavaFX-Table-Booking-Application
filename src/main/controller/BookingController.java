@@ -126,6 +126,9 @@ public class BookingController {
         try {
             LocalDate localDate = datePicker.getValue();
             Date date = Date.valueOf(localDate);
+            for (int h = 1; h < 13; h++){
+                greenTable(h);
+            }
             for (int i = 1; i < 13; i++){
                 if (bookingModel.isBooked(date, i) == true) {
                     redTable(i);
@@ -177,9 +180,47 @@ public class BookingController {
         }
 
     }
+    public void greenTable(int tableNumber) {
+        if (tableNumber == 1) {
+            table1.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 2) {
+            table2.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 3) {
+            table3.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 4) {
+            table4.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 5) {
+            table5.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 6) {
+            table6.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 7) {
+            table7.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 8) {
+            table8.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 9) {
+            table9.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 10) {
+            table10.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 11) {
+            table11.setFill(Paint.valueOf("#1fff4e"));
+        }
+        if (tableNumber == 12) {
+            table12.setFill(Paint.valueOf("#1fff4e"));
+        }
+    }
     public void bookingSuccessful(){
         try {
-            URL url = new File("src/main/ui/bookingSuccessful.fxml").toURI().toURL();
+            URL url = new File("src/main/ui/bookSuccess.fxml").toURI().toURL();
             Parent root = FXMLLoader.load(url);
             Stage viewStage = new Stage();
             Scene scene = new Scene(root);

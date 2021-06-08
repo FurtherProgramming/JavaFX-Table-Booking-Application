@@ -55,10 +55,14 @@ public class ResetPassword1Controller {
 
     }
 
-    public void resetPassword() throws SQLException {
+    public void resetPassword(){
         try {
             if (RP1M.isCorrect(txtAnswer.getText(), Integer.parseInt(txtEmpID.getText())) == true) {
-                RP1M.changePassword("\'" + txtPassword.getText() + "\'", Integer.parseInt(txtEmpID.getText()));
+                RP1M.changePassword(txtPassword.getText(), Integer.parseInt(txtEmpID.getText()));
+                goToLogin();
+                Stage stage = (Stage) buttonConfirm.getScene().getWindow();
+                stage.close();
+
             } else {
                 labelStatusPassword.setText("Wrong answer");
             }
@@ -66,6 +70,20 @@ public class ResetPassword1Controller {
         } catch (Exception e) {
         }
 
+
+    }
+    public void goToLogin(){
+        try {
+            URL url = new File("src/main/ui/ResetPasswordSuccess.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Login");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
 
     }
 }

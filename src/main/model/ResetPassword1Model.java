@@ -103,24 +103,25 @@ public class ResetPassword1Model {
 
         }
 
-        public void changePassword(String password, int id) throws SQLException {
-
+        public void changePassword(String password, int id){
+            Connection connection = this.connect();
             String query = "update employee set password = ? where id = ?";
 
 
             try {
-                Connection connection = this.connect();
+
                 PreparedStatement PS = connection.prepareStatement(query);
                 PS.setString(1, password);
                 PS.setString(2, Integer.toString(id));
-                PS.executeQuery();
+                PS.executeUpdate();
+
+                connection.close();
+            } catch (SQLException e) {
 
 
-            } catch (Exception e) {
-
-            } finally {
 
             }
+
 
 
         }
