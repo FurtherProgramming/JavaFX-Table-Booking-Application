@@ -1,5 +1,4 @@
 package main.controller;
-
 import java.time.LocalDate;
 import javafx.fxml.FXML;
 import java.sql.Date;
@@ -19,8 +18,8 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.control.DatePicker;
 import main.model.BookingModel;
-import java.awt.Color;
-import main.SQLConnection;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
 
 import java.io.File;
@@ -43,68 +42,77 @@ public class BookingController {
     @FXML private Rectangle table10;
     @FXML private Rectangle table11;
     @FXML private Rectangle table12;
-    @FXML private Button buttonT1;
-    @FXML private Button buttonT2;
-    @FXML private Button buttonT3;
-    @FXML private Button buttonT4;
-    @FXML private Button buttonT5;
-    @FXML private Button buttonT6;
-    @FXML private Button buttonT7;
-    @FXML private Button buttonT8;
-    @FXML private Button buttonT9;
-    @FXML private Button buttonT10;
-    @FXML private Button buttonT11;
-    @FXML private Button buttonT12;
     @FXML private DatePicker datePicker;
     @FXML private Button buttonTables;
     @FXML private Button buttonConfirm;
     @FXML private TextField txtID;
+    @FXML private Label txtChosenTable;
+    @FXML private Label labelStatus;
 
 
     private int selectedTable;
-    public void table1Booking(ActionEvent event){
+
+
+
+
+
+
+    @FXML
+    public void table1Booking(MouseEvent event){
         selectedTable = 1;
+        txtChosenTable.setText("Table 1");
     }
-    public void table2Booking(ActionEvent event){
-        selectedTable = 2;
+    @FXML
+    public void table2Booking(MouseEvent event){
+        selectedTable = 2;txtChosenTable.setText("Table 2");
     }
-    public void table3Booking(ActionEvent event){
-        selectedTable = 3;
+    @FXML
+    public void table3Booking(MouseEvent event) { selectedTable = 3; txtChosenTable.setText("Table 3");}
+    @FXML
+    public void table4Booking(MouseEvent event) { selectedTable = 4; txtChosenTable.setText("Table 4");}
+    @FXML
+    public void table5Booking(MouseEvent event) { selectedTable = 5; txtChosenTable.setText("Table 5");}
+    @FXML
+    public void table6Booking(MouseEvent event){  selectedTable = 6; txtChosenTable.setText("Table 6");
     }
-    public void table4Booking(ActionEvent event){
-        selectedTable = 4;
+    @FXML
+    public void table7Booking(MouseEvent event){
+        selectedTable = 7; txtChosenTable.setText("Table 7");
     }
-    public void table5Booking(ActionEvent event){
-        selectedTable = 5;
+    @FXML
+    public void table8Booking(MouseEvent event){
+        selectedTable = 8; txtChosenTable.setText("Table 8");
     }
-    public void table6Booking(ActionEvent event){
-        selectedTable = 6;
+    @FXML
+    public void table9Booking(MouseEvent event){
+        selectedTable = 9; txtChosenTable.setText("Table 9");
     }
-    public void table7Booking(ActionEvent event){
-        selectedTable = 7;
+    @FXML
+    public void table10Booking(MouseEvent event){
+        selectedTable = 10;txtChosenTable.setText("Table 10");
     }
-    public void table8Booking(ActionEvent event){
-        selectedTable = 8;
+    @FXML
+    public void table11Booking(MouseEvent event){
+        selectedTable = 11;txtChosenTable.setText("Table 11");
     }
-    public void table9Booking(ActionEvent event){
-        selectedTable = 9;
-    }
-    public void table10Booking(ActionEvent event){
-        selectedTable = 10;
-    }
-    public void table11Booking(ActionEvent event){
-        selectedTable = 11;
-    }
-    public void table12Booking(ActionEvent event){
-        selectedTable = 12;
+    @FXML
+    public void table12Booking(MouseEvent event){
+        selectedTable = 12;txtChosenTable.setText("Table 12");
     }
     public void makeBooking(ActionEvent event){
         try {
         LocalDate localDate = datePicker.getValue();
         Date date = Date.valueOf(localDate);
-        if (bookingModel.isBooked(date, selectedTable) == false){
+        if (bookingModel.isBooked(date, selectedTable) == false) {
             bookingModel.book(Integer.parseInt(txtID.getText()), date, selectedTable);
+            bookingSuccessful();
+            Stage stage = (Stage) buttonConfirm.getScene().getWindow();
+            stage.close();
 
+
+        }
+        if (bookingModel.isBooked(date, selectedTable) == true) {
+            labelStatus.setText("Table has been booked");
         }
 
         } catch (SQLException e) {
@@ -119,8 +127,9 @@ public class BookingController {
             LocalDate localDate = datePicker.getValue();
             Date date = Date.valueOf(localDate);
             for (int i = 1; i < 13; i++){
-                if (bookingModel.isBooked(date, i) == true);
-                redTable(i);
+                if (bookingModel.isBooked(date, i) == true) {
+                    redTable(i);
+                }
             }
 
         } catch (SQLException e) {
@@ -137,7 +146,7 @@ public class BookingController {
             table2.setFill(Paint.valueOf("#FF0000"));
         }
         if (tableNumber == 3) {
-            table1.setFill(Paint.valueOf("#FF0000"));
+            table3.setFill(Paint.valueOf("#FF0000"));
         }
         if (tableNumber == 4) {
             table4.setFill(Paint.valueOf("FF0000"));
@@ -166,7 +175,23 @@ public class BookingController {
         if (tableNumber == 12) {
             table12.setFill(Paint.valueOf("#FF0000"));
         }
+
     }
+    public void bookingSuccessful(){
+        try {
+            URL url = new File("src/main/ui/bookingSuccessful.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Registration Successful");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
+    }
+
+
 
 
 }

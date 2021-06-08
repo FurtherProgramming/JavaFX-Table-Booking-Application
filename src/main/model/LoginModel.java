@@ -57,7 +57,12 @@ public class LoginModel {
         {
             return false;
         }finally {
-           preparedStatement.close();
+            if (preparedStatement != null)
+           try {
+               preparedStatement.close();
+           }catch (Exception e){
+
+            }
            resultSet.close();
         }
 

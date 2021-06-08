@@ -22,10 +22,30 @@ public class EmployeeMenuController {
     @FXML
     private Button buttonManageBook;
 
-    public void goToBooking() {
+    public void goToBooking(ActionEvent event){
+        try {
+            openBooking();
+            Stage stage = (Stage) buttonBook.getScene().getWindow();
+            stage.close();
+        } catch (Exception e){
 
-
+        }
     }
+
+    public void openBooking() {
+        try {
+            URL url = new File("src/main/ui/booking.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Booking");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
+    }
+
     public void goToManageAccount() {
 
     }

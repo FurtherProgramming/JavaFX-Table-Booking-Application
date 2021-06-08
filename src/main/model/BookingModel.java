@@ -16,22 +16,19 @@ import java.net.URL;
 public class BookingModel {
     Connection connection;
 
-    public static Connection connect() {
-        try {
-            Class.forName("org.sqlite.JDBC");
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:assignment.db");
-            return connection;
+    public BookingModel(){
 
-        } catch (Exception e) {
-            System.out.println(e);
-            return null;
-        }
+        connection = SQLConnection.connect();
+        if (connection == null)
+            System.exit(1);
+
     }
+
 
     public boolean isBooked(Date date, int seat) throws SQLException{
         PreparedStatement preparedStatement = null;
         ResultSet resultSet=null;
-        String query = "select seat from Booking where date = ? and seat = ?";
+        String query = "select * from Booking where Date = ? and Seat = ?";
 
         try {
 
@@ -51,8 +48,18 @@ public class BookingModel {
         {
             return false;
         }finally {
-            preparedStatement.close();
-            resultSet.close();
+            if (preparedStatement != null)
+                try {
+                    preparedStatement.close();
+                }catch (Exception e){
+
+                }
+            if (resultSet != null)
+                try {
+                    resultSet.close();
+                }catch (Exception e){
+
+                }
         }
 
     }
@@ -61,7 +68,6 @@ public class BookingModel {
         String query = "INSERT INTO Booking(id, Date, Seat) values (?, ?, ?)";
 
         try {
-            Connection connection = this.connect();
             PreparedStatement PS = connection.prepareStatement(query);
             PS.setInt(1,id);
             PS.setDate(2, date);

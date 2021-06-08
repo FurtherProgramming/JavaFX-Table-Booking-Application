@@ -11,36 +11,24 @@
 
 <AnchorPane fx:id="dateSelect" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.BookingController">
    <children>
-      <Button fx:id="buttonT6" layoutX="370.0" layoutY="347.0" mnemonicParsing="false" onAction="#table6Booking" prefHeight="68.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="buttonT3" layoutX="205.0" layoutY="197.0" mnemonicParsing="false" onAction="#table3Booking" prefHeight="68.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="buttonT10" layoutX="31.0" layoutY="378.0" mnemonicParsing="false" onAction="#table10Booking" prefHeight="68.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="buttonT11" layoutX="31.0" layoutY="297.0" mnemonicParsing="false" onAction="#table11Booking" prefHeight="68.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="buttonT12" layoutX="31.0" layoutY="217.0" mnemonicParsing="false" onAction="#table12Booking" prefHeight="68.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="buttonT5" layoutX="286.0" layoutY="314.0" mnemonicParsing="false" onAction="#table5Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Button fx:id="buttonT4" layoutX="205.0" layoutY="314.0" mnemonicParsing="false" onAction="#table4Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Button fx:id="buttonT7" layoutX="286.0" layoutY="428.0" mnemonicParsing="false" onAction="#table7Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Button fx:id="buttonT8" layoutX="206.0" layoutY="428.0" mnemonicParsing="false" onAction="#table8Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Button fx:id="buttonT9" layoutX="126.0" layoutY="430.0" mnemonicParsing="false" onAction="#table9Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Button fx:id="buttonT2" layoutX="171.0" layoutY="145.0" mnemonicParsing="false" onAction="#table2Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Button fx:id="buttonT1" layoutX="63.0" layoutY="146.0" mnemonicParsing="false" onAction="#table1Booking" prefHeight="33.0" prefWidth="69.0" text="Button" />
-      <Rectangle fx:id="table1" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="63.0" layoutY="146.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table2" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="171.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table4" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="206.0" layoutY="313.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table5" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="286.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table9" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="126.0" layoutY="428.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table8" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="206.0" layoutY="428.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table7" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="286.0" layoutY="428.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="table6" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="370.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
-      <Rectangle fx:id="table12" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
-      <Rectangle fx:id="table3" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="205.0" layoutY="197.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
-      <Rectangle fx:id="table10" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="378.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
-      <Rectangle fx:id="table11" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table1" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="64.0" layoutY="145.0" onMouseClicked="#table1Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table2" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="171.0" layoutY="145.0" onMouseClicked="#table2Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table4" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="206.0" layoutY="313.0" onMouseClicked="#table4Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table5" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="286.0" layoutY="315.0" onMouseClicked="#table5Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table9" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="126.0" layoutY="428.0" onMouseClicked="#table9Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table8" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="206.0" layoutY="428.0" onMouseClicked="#table8Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table7" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="286.0" layoutY="428.0" onMouseClicked="#table7Booking" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table6" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="370.0" layoutY="347.0" onMouseClicked="#table6Booking" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table12" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="217.0" onMouseClicked="#table12Booking" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table3" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="205.0" layoutY="197.0" onMouseClicked="#table3Booking" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table10" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="378.0" onMouseClicked="#table10Booking" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table11" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="296.0" onMouseClicked="#table11Booking" stroke="BLACK" strokeType="INSIDE" width="32.0" />
       <DatePicker fx:id="datePicker" layoutX="245.0" layoutY="145.0" prefHeight="34.0" prefWidth="177.0" promptText="Choose Date for Booking" />
       <Line endX="304.0" layoutX="125.0" layoutY="130.0" startX="-100.0" />
       <Line endX="15.5" endY="-75.5" layoutX="414.0" layoutY="206.0" startX="15.5" startY="270.0" />
       <Line endX="-271.5" endY="180.0" layoutX="296.0" layoutY="296.0" startX="-271.5" startY="-165.5" />
       <Line endX="245.0" endY="-0.5" layoutX="185.0" layoutY="477.0" startX="-160.0" startY="-0.5" />
-      <Button fx:id="buttonConfirm" layoutX="445.0" layoutY="432.0" mnemonicParsing="false" onAction="#makeBooking" text="Confirm" />
+      <Button fx:id="buttonConfirm" layoutX="445.0" layoutY="432.0" mnemonicParsing="false" onAction="#makeBooking" text="Confirm" textAlignment="CENTER" />
       <Label layoutX="205.0" layoutY="38.0" text="Booking">
          <font>
             <Font size="23.0" />
@@ -52,5 +40,7 @@
       <Label layoutX="264.0" layoutY="277.0" text="ORANGE = COVID Locked" textFill="#ff6200" />
       <Button fx:id="buttonTables" layoutX="324.0" layoutY="185.0" mnemonicParsing="false" onAction="#tableUpdater" text="Update Tables" />
       <TextField fx:id="txtID" layoutX="266.0" layoutY="219.0" promptText="Enter ID" />
+      <Label fx:id="txtChosenTable" alignment="TOP_CENTER" layoutX="435.0" layoutY="137.0" prefHeight="167.0" prefWidth="79.0" text="Currrent Table:" textAlignment="CENTER" />
+      <Label fx:id="labelStatus" layoutX="440.0" layoutY="330.0" prefHeight="85.0" prefWidth="69.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
    </children>
 </AnchorPane>
