@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.control.DatePicker;
 import main.model.BookingModel;
+import main.model.InformationModel;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -29,6 +30,7 @@ import java.util.ResourceBundle;
 
 public class BookingController {
     BookingModel bookingModel = new BookingModel();
+    InformationModel informationModel = new InformationModel();
     @FXML
     private Rectangle table1;
     @FXML private Rectangle table2;
@@ -43,9 +45,7 @@ public class BookingController {
     @FXML private Rectangle table11;
     @FXML private Rectangle table12;
     @FXML private DatePicker datePicker;
-    @FXML private Button buttonTables;
     @FXML private Button buttonConfirm;
-    @FXML private TextField txtID;
     @FXML private Label txtChosenTable;
     @FXML private Label labelStatus;
 
@@ -104,7 +104,7 @@ public class BookingController {
         LocalDate localDate = datePicker.getValue();
         Date date = Date.valueOf(localDate);
         if (bookingModel.isBooked(date, selectedTable) == false) {
-            bookingModel.book(Integer.parseInt(txtID.getText()), date, selectedTable);
+            bookingModel.book(informationModel.getId(), date, selectedTable);
             bookingSuccessful();
             Stage stage = (Stage) buttonConfirm.getScene().getWindow();
             stage.close();

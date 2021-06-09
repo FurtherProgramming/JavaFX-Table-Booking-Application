@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import main.model.LoginModel;
+import main.model.InformationModel;
 
 import java.io.File;
 import java.net.URL;
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     public LoginModel loginModel = new LoginModel();
+    public InformationModel informationModel = new InformationModel();
     @FXML
     private Label isConnected;
     @FXML
@@ -49,6 +51,7 @@ public class LoginController implements Initializable {
         try {
             if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())){
                 isConnected.setText("Logged in successfully");
+                informationModel.setId(informationModel.retrieveID(txtUsername.getText()));
                 goToEmployeeMenu();
                 Stage stage = (Stage) buttonLogin.getScene().getWindow();
                 stage.close();

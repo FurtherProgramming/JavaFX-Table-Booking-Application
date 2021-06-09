@@ -31,7 +31,15 @@ public class EmployeeMenuController {
 
         }
     }
+    public void goToManageAccount(){
+        try {
+            openManageAccount();
+            Stage stage = (Stage) buttonManageAcc.getScene().getWindow();
+            stage.close();
+        } catch (Exception e){
 
+        }
+    }
     public void openBooking() {
         try {
             URL url = new File("src/main/ui/booking.fxml").toURI().toURL();
@@ -46,9 +54,21 @@ public class EmployeeMenuController {
         }
     }
 
-    public void goToManageAccount() {
+    public void openManageAccount() {
+        try {
+            URL url = new File("src/main/ui/manageAccount.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Manage Account");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
 
+        }
     }
+
+
 
     public void goToManageBooking(){
 
