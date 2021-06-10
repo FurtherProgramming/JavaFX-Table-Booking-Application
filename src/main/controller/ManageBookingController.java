@@ -3,21 +3,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.control.TextField;
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
-import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import java.time.format.DateTimeFormatter;
 import javafx.scene.control.Button;
 import main.model.ManageBookingModel;
 import main.model.InformationModel;
+import java.time.*;
 
 import java.io.File;
 import java.net.URL;
@@ -48,18 +44,8 @@ public class ManageBookingController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Date date = getBookingDate();
-        int seatInt = getBookingSeat();
-        String seatString = String.valueOf(seatInt);
-        LocalDate localDate = date.toLocalDate();
-        String dateString = localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        labelSeat.setText("Seat: " + seatString);
-        labelDate.setText("Date: " + dateString);
-        tableUpdater(date, seatInt);
-
-
-
-
+        setBookingDetails();
+        tableUpdater(getBookingDate(), getBookingSeat());
     }
     public Date getBookingDate() {
         try {
@@ -80,6 +66,20 @@ public class ManageBookingController implements Initializable{
             e.printStackTrace();
         }
         return 0;
+    }
+    public void setBookingDetails(){
+        try {
+            String seatString = String.valueOf(getBookingSeat());
+            //LocalDate localDate = getBookingDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            //String dateString = localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            labelSeat.setText("Seat: " + seatString);
+            //labelDate.setText("Date: " + dateString);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+
+        }
     }
 
     public void colourTable(int tableNumber, String colour){ // green is #1fff4e, red is #FF0000 and blue is #0400ff

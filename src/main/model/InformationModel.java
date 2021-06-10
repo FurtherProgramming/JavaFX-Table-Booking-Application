@@ -18,6 +18,7 @@ public class InformationModel {
     private static int id;
 
     public void setId(int i){
+
         id = i;
     }
 

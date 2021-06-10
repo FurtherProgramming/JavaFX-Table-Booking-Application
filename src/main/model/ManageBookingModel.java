@@ -26,9 +26,19 @@ public class ManageBookingModel {
             return date;
         } catch (Exception e) {
             return null;
-        } finally {
-            preparedStatement.close();
+        }finally {
+            if (preparedStatement != null)
+                try {
+                    preparedStatement.close();
+                }catch (Exception e){
 
+                }
+            if (resultSet != null)
+                try {
+                    resultSet.close();
+                }catch (Exception e){
+
+                }
         }
     }
     public int getUserBookingSeat(int id) throws SQLException{
@@ -43,9 +53,19 @@ public class ManageBookingModel {
             return seat;
         } catch (Exception e) {
             return 0;
-        } finally {
-            preparedStatement.close();
+        }finally {
+            if (preparedStatement != null)
+                try {
+                    preparedStatement.close();
+                }catch (Exception e){
 
+                }
+            if (resultSet != null)
+                try {
+                    resultSet.close();
+                }catch (Exception e){
+
+                }
         }
     }
     public boolean isBooked(Date date, int seat) throws SQLException{
