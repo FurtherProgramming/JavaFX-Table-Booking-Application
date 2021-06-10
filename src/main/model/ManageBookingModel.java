@@ -1,7 +1,6 @@
 package main.model;
 
 import java.sql.*;
-import main.SQLConnection;
 public class ManageBookingModel {
     Connection connection;
     public static Connection connect() {
@@ -85,6 +84,28 @@ public class ManageBookingModel {
 
                 }
         }
+
+    }
+    public void deleteBooking(int id) {
+        Connection connection = this.connect();
+        String query = "delete from booking where id = ?";
+
+
+        try {
+
+            PreparedStatement PS = connection.prepareStatement(query);
+            PS.setInt(1, id);
+            PS.executeUpdate();
+
+            connection.close();
+
+        } catch (SQLException e) {
+
+
+
+        }
+
+
 
     }
 

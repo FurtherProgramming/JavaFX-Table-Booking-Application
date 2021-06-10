@@ -53,10 +53,6 @@ public class BookingController {
     private int selectedTable;
 
 
-
-
-
-
     @FXML
     public void table1Booking(MouseEvent event){
         selectedTable = 1;
