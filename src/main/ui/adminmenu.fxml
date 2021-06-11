@@ -6,7 +6,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminMenuController">
    <children>
       <Button fx:id="buttonManagement" layoutX="152.0" layoutY="56.0" mnemonicParsing="false" onAction="#ManageAccount" text="Management" />
-      <Button fx:id="buttonViewDesk" layoutX="137.0" layoutY="108.0" mnemonicParsing="false" text="View Desk Settings" />
+      <Button fx:id="buttonViewDesk" layoutX="137.0" layoutY="108.0" mnemonicParsing="false" onAction="#ViewDesk" text="View Desk Settings" />
       <Button fx:id="buttonReleaseBooking" layoutX="143.0" layoutY="160.0" mnemonicParsing="false" text="Release Booking" />
       <Button fx:id="buttonGenCSV" layoutX="143.0" layoutY="211.0" mnemonicParsing="false" text="Generate Report" />
    </children>

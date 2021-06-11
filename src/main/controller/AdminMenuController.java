@@ -25,6 +25,11 @@ public class AdminMenuController {
         Stage stage = (Stage) buttonManagement.getScene().getWindow();
         stage.close();
     }
+    public void ViewDesk(ActionEvent event) {
+        goToViewDesk();
+        Stage stage = (Stage) buttonViewDesk.getScene().getWindow();
+        stage.close();
+    }
 
 
     public void goToManageAccount(){
@@ -40,6 +45,20 @@ public class AdminMenuController {
 
         }
     }
+    public void goToViewDesk(){
+        try {
+            URL url = new File("src/main/ui/viewbooking.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("View Desk Details");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
+    }
+
 
 
 }

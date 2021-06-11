@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dateSelect" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminViewDeskController">
+   <children>
+      <Rectangle fx:id="table1" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="64.0" layoutY="145.0" onMouseClicked="#table1Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table2" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="171.0" layoutY="145.0" onMouseClicked="#table2Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table4" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="206.0" layoutY="313.0" onMouseClicked="#table4Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table5" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="286.0" layoutY="315.0" onMouseClicked="#table5Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table9" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="126.0" layoutY="428.0" onMouseClicked="#table9Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table8" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="206.0" layoutY="428.0" onMouseClicked="#table8Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table7" arcHeight="5.0" arcWidth="5.0" fill="#1fff4e" height="33.0" layoutX="286.0" layoutY="428.0" onMouseClicked="#table7Chosen" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="table6" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="370.0" layoutY="347.0" onMouseClicked="#table6Chosen" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table12" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="217.0" onMouseClicked="#table12Chosen" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table3" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="205.0" layoutY="197.0" onMouseClicked="#table3Chosen" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table10" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="378.0" onMouseClicked="#table10Chosen" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <Rectangle fx:id="table11" arcHeight="5.0" arcWidth="5.0" fill="#1fff57" height="68.0" layoutX="31.0" layoutY="296.0" onMouseClicked="#table11Chosen" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <DatePicker fx:id="datePicker" layoutX="245.0" layoutY="145.0" prefHeight="34.0" prefWidth="177.0" promptText="Choose Date for Booking" />
+      <Line endX="304.0" layoutX="125.0" layoutY="130.0" startX="-100.0" />
+      <Line endX="15.5" endY="-75.5" layoutX="414.0" layoutY="206.0" startX="15.5" startY="270.0" />
+      <Line endX="-271.5" endY="180.0" layoutX="296.0" layoutY="296.0" startX="-271.5" startY="-165.5" />
+      <Line endX="245.0" endY="-0.5" layoutX="185.0" layoutY="477.0" startX="-160.0" startY="-0.5" />
+      <Button layoutX="440.0" layoutY="373.0" mnemonicParsing="false" onAction="#Lock" text="Lock" textAlignment="CENTER" />
+      <Label layoutX="205.0" layoutY="38.0" text="Booking">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="266.0" layoutY="243.0" text="RED = Unavailable" textFill="#f80101" />
+      <Label layoutX="265.0" layoutY="257.0" text="GREEN = Available" textFill="#1eff00" />
+      <Label alignment="TOP_CENTER" layoutX="98.0" layoutY="288.0" prefHeight="56.0" prefWidth="104.0" text="Click Table to Lock/Unlock" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="264.0" layoutY="277.0" text="ORANGE = COVID Locked" textFill="#ff6200" />
+      <Button fx:id="buttonTables" layoutX="324.0" layoutY="185.0" mnemonicParsing="false" onAction="#tableUpdater" text="Update Tables" />
+      <Label fx:id="txtChosenTable" alignment="TOP_CENTER" layoutX="435.0" layoutY="137.0" prefHeight="92.0" prefWidth="79.0" text="Currrent Table:" textAlignment="CENTER" textFill="#ff7b00" wrapText="true" />
+      <Label fx:id="labelStatus" layoutX="435.0" layoutY="254.0" prefHeight="85.0" prefWidth="69.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+      <Button layoutX="443.0" layoutY="416.0" mnemonicParsing="false" onAction="#Unlock" text="Unlock" />
+   </children>
+</AnchorPane>
