@@ -20,7 +20,7 @@ public class AdminMenuController {
     @FXML private Button buttonReleaseBooking;
     @FXML private Button buttonGenCSV;
 
-    public void ManageAccount(ActionEvent event) {
+    public void ManageAccount(ActionEvent event) { //admin menu after logging in as admin
         goToManageAccount();
         Stage stage = (Stage) buttonManagement.getScene().getWindow();
         stage.close();

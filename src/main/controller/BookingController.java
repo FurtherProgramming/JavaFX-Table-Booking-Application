@@ -28,7 +28,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class BookingController {
+public class BookingController { // all bookings submissions through here
     BookingModel bookingModel = new BookingModel();
     InformationModel informationModel = new InformationModel();
     @FXML
@@ -104,6 +104,9 @@ public class BookingController {
             labelStatus.setText("You have already made a booking");
 
         }
+        if (bookingModel.isLocked(date, selectedTable) == true){
+            labelStatus.setText("This seat is locked");
+        }
         if (bookingModel.isBooked(date, selectedTable) == false && bookingModel.userAlreadyBooked(informationModel.getId()) == false) {
             bookingModel.book(informationModel.getId(), date, selectedTable);
             bookingSuccessful();
@@ -113,7 +116,7 @@ public class BookingController {
 
 
         }
-        if (bookingModel.isBooked(date, selectedTable) == true) {
+        if (bookingModel.isBooked(date, selectedTable) == true && bookingModel.isLocked(date, selectedTable) == false) {
             labelStatus.setText("Table has been booked");
         }
 

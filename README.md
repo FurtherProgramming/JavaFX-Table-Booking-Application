@@ -1,6 +1,11 @@
 # Readme
 
-This README should be completed by the student
+All functions added but releasing/deleting bookings from admin side. No timeframe validation for bookings. 
+Also no CSV printing yet. Could have used abstract classes/interfaces, lots of methods reused or slightly modified for different usage.
+
+Database isn't configured properly for public key, if employee is removed there is meant to be a foreign key connected in bookings to remove the employee's bookings.
+No whitelist is used, so can't detect and stop user from booking same seat.
+
 
 # Packaging
 The main class is Main.java

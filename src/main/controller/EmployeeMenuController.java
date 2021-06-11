@@ -22,7 +22,7 @@ public class EmployeeMenuController {
     @FXML
     private Button buttonManageBook;
 
-    public void goToBooking(ActionEvent event){
+    public void goToBooking(ActionEvent event){ //menu for employees
         try {
             openBooking();
             Stage stage = (Stage) buttonBook.getScene().getWindow();

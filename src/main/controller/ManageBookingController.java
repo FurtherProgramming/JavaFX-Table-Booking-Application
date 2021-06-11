@@ -20,7 +20,7 @@ import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-public class ManageBookingController implements Initializable{
+public class ManageBookingController implements Initializable{ //delete the user's booking
     ManageBookingModel MBM = new ManageBookingModel();
     InformationModel informationModel = new InformationModel();
     @FXML private Label labelSeat;

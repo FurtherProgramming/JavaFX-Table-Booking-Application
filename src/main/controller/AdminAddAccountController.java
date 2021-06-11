@@ -23,7 +23,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import main.model.AdminAddAccountModel;
 
-public class AdminAddAccountController implements Initializable{
+public class AdminAddAccountController implements Initializable{ //add employees or admins
     @FXML private Label labelStatus;
     @FXML private TextField txtID;
     @FXML private TextField txtName;

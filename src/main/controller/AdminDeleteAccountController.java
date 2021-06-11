@@ -17,7 +17,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import main.model.AdminDeleteAccountModel;
-public class AdminDeleteAccountController {
+public class AdminDeleteAccountController { //delete any account
     @FXML private Label labelStatus;
     @FXML private TextField txtID;
     @FXML private Button buttonCancel;

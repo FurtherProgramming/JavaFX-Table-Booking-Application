@@ -46,7 +46,7 @@ public class LoginController implements Initializable {
     /* login Action method
        check if user input is the same as database.
      */
-    public void Login(ActionEvent event){
+    public void Login(ActionEvent event){ //login
 
         try {
             if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())) {

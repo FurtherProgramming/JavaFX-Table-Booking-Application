@@ -22,7 +22,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class RegisterController {
+public class RegisterController { // makes a new employee
     public RegisterModel registerModel = new RegisterModel();
     @FXML
     private TextField txtEmpID;

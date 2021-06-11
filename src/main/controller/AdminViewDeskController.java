@@ -26,7 +26,7 @@ import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-public class AdminViewDeskController {
+public class AdminViewDeskController { // view desk details as well as lock/unlock tables
     @FXML private Rectangle table1;
     @FXML private Rectangle table2;
     @FXML private Rectangle table3;

@@ -14,7 +14,7 @@ import java.io.File;
 import javafx.stage.Stage;
 import java.net.URL;
 
-public class StartMenuController {
+public class StartMenuController { //the first scene to navigate program
     @FXML
     private Label labelHotdesking;
     @FXML

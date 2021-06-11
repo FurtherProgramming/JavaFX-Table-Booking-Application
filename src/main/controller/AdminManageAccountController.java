@@ -14,7 +14,7 @@ import java.io.File;
 import javafx.stage.Stage;
 import java.net.URL;
 
-public class AdminManageAccountController {
+public class AdminManageAccountController { // manage account menu
     @FXML private Button buttonAddAcc;
     @FXML private Button buttonDeleteAcc;
     @FXML private Button buttonUpdateAcc;

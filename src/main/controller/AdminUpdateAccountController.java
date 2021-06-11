@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import main.model.AdminUpdateAccountModel;
-public class AdminUpdateAccountController implements Initializable {
+public class AdminUpdateAccountController implements Initializable { //able to update details of any account
     AdminUpdateAccountModel updateModel = new AdminUpdateAccountModel();
     @FXML private TextField txtID;
     @FXML private TextField txtName;

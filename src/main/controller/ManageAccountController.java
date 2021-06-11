@@ -20,7 +20,7 @@ import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-public class ManageAccountController implements Initializable{
+public class ManageAccountController implements Initializable{ //employee is able to update their password, question and answer
     ManageAccountModel MAM = new ManageAccountModel();
     InformationModel informationModel = new InformationModel();
     @FXML

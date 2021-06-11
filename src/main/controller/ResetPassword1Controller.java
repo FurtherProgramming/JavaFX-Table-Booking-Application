@@ -20,7 +20,7 @@ import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import main.model.ResetPassword1Model;
+import main.model.ResetPassword1Model; // able to change password if question and answer are correct
 public class ResetPassword1Controller {
     @FXML
     private Label labelStatus;
