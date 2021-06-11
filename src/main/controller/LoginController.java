@@ -49,12 +49,24 @@ public class LoginController implements Initializable {
     public void Login(ActionEvent event){
 
         try {
-            if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())){
+            if (loginModel.isLogin(txtUsername.getText(),txtPassword.getText())) {
                 isConnected.setText("Logged in successfully");
-                informationModel.setId(informationModel.retrieveID(txtUsername.getText()));
-                goToEmployeeMenu();
-                Stage stage = (Stage) buttonLogin.getScene().getWindow();
-                stage.close();
+                if (loginModel.getAccType(txtUsername.getText()).equals("employee")) {
+                    informationModel.setId(informationModel.retrieveID(txtUsername.getText()));
+                    goToEmployeeMenu();
+                    Stage stage = (Stage) buttonLogin.getScene().getWindow();
+                    stage.close();
+
+                }
+                if (loginModel.getAccType(txtUsername.getText()).equals("admin")) {
+                    informationModel.setId(informationModel.retrieveID(txtUsername.getText()));
+                    informationModel.setRole(informationModel.retrieveRole(txtUsername.getText()));
+                    goToAdminMenu();
+                    Stage stage = (Stage) buttonLogin.getScene().getWindow();
+                    stage.close();
+                }
+
+
             }else{
                 isConnected.setText("username and password is incorrect");
             }
@@ -89,6 +101,19 @@ public class LoginController implements Initializable {
             Stage viewStage = new Stage();
             Scene scene = new Scene(root);
             viewStage.setTitle("Employee Menu");
+            viewStage.setScene(scene);
+            viewStage.show();
+        } catch(Exception e) {
+
+        }
+    }
+    public void goToAdminMenu(){
+        try {
+            URL url = new File("src/main/ui/adminmenu.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Stage viewStage = new Stage();
+            Scene scene = new Scene(root);
+            viewStage.setTitle("Admin Menu");
             viewStage.setScene(scene);
             viewStage.show();
         } catch(Exception e) {

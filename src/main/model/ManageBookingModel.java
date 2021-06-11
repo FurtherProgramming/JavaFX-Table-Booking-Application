@@ -16,60 +16,51 @@ public class ManageBookingModel {
     }
     public Date getUserBookingDate(int id) throws SQLException{
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet= null;
-        String query = "select date from booking where id = ?";
-        try{
+        Connection connection = this.connect();
+        String query = "select date from booking where ID = ?";
+        ResultSet resultSet = null;
+        Date date;
+
+
+        try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            Date date = resultSet.getDate(1);
+            date = resultSet.getDate(1);
             return date;
+
         } catch (Exception e) {
             return null;
-        }finally {
-            if (preparedStatement != null)
-                try {
-                    preparedStatement.close();
-                }catch (Exception e){
+        } finally {
+            preparedStatement.close();
 
-                }
-            if (resultSet != null)
-                try {
-                    resultSet.close();
-                }catch (Exception e){
-
-                }
         }
     }
     public int getUserBookingSeat(int id) throws SQLException{
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet= null;
-        String query = "select seat from booking where id = ?";
-        try{
+        Connection connection = this.connect();
+        String query = "select seat from booking where ID = ?";
+        ResultSet resultSet = null;
+        int Seat;
+
+
+        try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            int seat = resultSet.getInt(1);
-            return seat;
+            Seat = resultSet.getInt(1);
+            return Seat;
+
         } catch (Exception e) {
             return 0;
-        }finally {
-            if (preparedStatement != null)
-                try {
-                    preparedStatement.close();
-                }catch (Exception e){
+        } finally {
+            preparedStatement.close();
 
-                }
-            if (resultSet != null)
-                try {
-                    resultSet.close();
-                }catch (Exception e){
-
-                }
         }
     }
     public boolean isBooked(Date date, int seat) throws SQLException{
         PreparedStatement preparedStatement = null;
+        Connection connection = this.connect();
         ResultSet resultSet=null;
         String query = "select * from Booking where Date = ? and Seat = ?";
 
@@ -86,23 +77,11 @@ public class ManageBookingModel {
             else{
                 return false;
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return false;
-        }finally {
-            if (preparedStatement != null)
-                try {
-                    preparedStatement.close();
-                }catch (Exception e){
+        } finally {
+            preparedStatement.close();
 
-                }
-            if (resultSet != null)
-                try {
-                    resultSet.close();
-                }catch (Exception e){
-
-                }
         }
 
     }

@@ -99,11 +99,17 @@ public class BookingController {
         try {
         LocalDate localDate = datePicker.getValue();
         Date date = Date.valueOf(localDate);
-        if (bookingModel.isBooked(date, selectedTable) == false) {
+
+        if (bookingModel.userAlreadyBooked(informationModel.getId()) == true) {
+            labelStatus.setText("You have already made a booking");
+
+        }
+        if (bookingModel.isBooked(date, selectedTable) == false && bookingModel.userAlreadyBooked(informationModel.getId()) == false) {
             bookingModel.book(informationModel.getId(), date, selectedTable);
             bookingSuccessful();
             Stage stage = (Stage) buttonConfirm.getScene().getWindow();
             stage.close();
+
 
 
         }

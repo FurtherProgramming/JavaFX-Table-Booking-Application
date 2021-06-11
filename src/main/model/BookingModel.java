@@ -82,6 +82,40 @@ public class BookingModel {
 
     }
 
+    public boolean userAlreadyBooked(int id) throws SQLException{
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet=null;
+        String query = "select * from Booking where id = ?";
 
+        try{
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
 
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+            }
+        catch (Exception e)
+            {
+                return false;
+            }finally {
+                if (preparedStatement != null)
+                    try {
+                        preparedStatement.close();
+                    }catch (Exception e){
+
+                    }
+                if (resultSet != null)
+                    try {
+                        resultSet.close();
+                    }catch (Exception e){
+
+                    }
+            }
+
+        }
 }

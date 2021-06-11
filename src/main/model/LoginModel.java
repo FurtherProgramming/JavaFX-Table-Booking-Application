@@ -67,6 +67,35 @@ public class LoginModel {
         }
 
     }
+    public String getAccType(String user) throws SQLException{
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet=null;
+        String query = "select role from employee where username = ?";
+        try {
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user);
+
+            resultSet = preparedStatement.executeQuery();
+            String role;
+            role = resultSet.getString(1);
+            return role;
+
+        }
+        catch (Exception e)
+        {
+            return null;
+        }finally {
+            if (preparedStatement != null)
+                try {
+                    preparedStatement.close();
+                }catch (Exception e){
+
+                }
+            resultSet.close();
+        }
+
+    }
 
 
 }

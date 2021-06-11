@@ -13,16 +13,25 @@ import javafx.scene.Scene;
 import java.io.File;
 import javafx.stage.Stage;
 import java.net.URL;
+import main.model.InformationModel;
 
 
 public class RegistrationSuccessfulController {
     @FXML
     Button buttonLogin;
+    InformationModel informationModel = new InformationModel();
 
     public void backToStartMenu(ActionEvent event){
-        StartMenu();
-        Stage stage = (Stage) buttonLogin.getScene().getWindow();
-        stage.close();
+        if (informationModel.getRole().equals("employee")) {
+            StartMenu();
+            Stage stage = (Stage) buttonLogin.getScene().getWindow();
+            stage.close();
+        }
+        if (informationModel.getRole().equals("admin")) {
+            AdminMenu();
+            Stage stage = (Stage) buttonLogin.getScene().getWindow();
+            stage.close();
+        }
     }
 
 
@@ -39,6 +48,19 @@ public class RegistrationSuccessfulController {
         } catch(Exception e) {
 
         }
+    }
+    public void AdminMenu(){
+            try {
+                URL url = new File("src/main/ui/adminmenu.fxml").toURI().toURL();
+                Parent root = FXMLLoader.load(url);
+                Stage viewStage = new Stage();
+                Scene scene = new Scene(root);
+                viewStage.setTitle("Admin Menu");
+                viewStage.setScene(scene);
+                viewStage.show();
+            } catch(Exception e) {
+
+            }
     }
 }
 
